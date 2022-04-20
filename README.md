@@ -35,9 +35,9 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 - **composer install**
 - **migrate and seeder**
-- **php artisan passport:install **
-- **genrate api doc with this command  **
-- ** php artisan l5-swagger:generate **
+- **php artisan passport:install**
+- **genrate api doc with this command**
+- **php artisan l5-swagger:generate**
 
 
 ## Contributing
