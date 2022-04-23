@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Laravel OpenApi Demo Documentation",
-        "description": "L5 Swagger OpenApi description",
+        "title": "Club Project",
+        "description": "Api description",
         "contact": {
             "email": "admin@admin.com"
         },
@@ -536,7 +536,7 @@
                 "operationId": "storeClient",
                 "parameters": [
                     {
-                        "name": "FirstName",
+                        "name": "firstName",
                         "in": "path",
                         "description": "Client FirstName",
                         "required": true,
@@ -545,7 +545,7 @@
                         }
                     },
                     {
-                        "name": "LastName",
+                        "name": "lastName",
                         "in": "path",
                         "description": "Client LastName",
                         "required": true,
@@ -554,16 +554,16 @@
                         }
                     },
                     {
-                        "name": "LastName",
+                        "name": "phoneNumber",
                         "in": "path",
-                        "description": "Client LastName",
+                        "description": "Client phoneNumber",
                         "required": true,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "Country",
+                        "name": "country",
                         "in": "path",
                         "description": "Client Country",
                         "required": true,
@@ -572,7 +572,7 @@
                         }
                     },
                     {
-                        "name": "City",
+                        "name": "city",
                         "in": "path",
                         "description": "Client City",
                         "required": true,
@@ -581,7 +581,7 @@
                         }
                     },
                     {
-                        "name": "AdressLine",
+                        "name": "adressLine",
                         "in": "path",
                         "description": "Client AdressLine",
                         "required": true,
@@ -590,7 +590,7 @@
                         }
                     },
                     {
-                        "name": "AdressLine2",
+                        "name": "adressLine2",
                         "in": "path",
                         "description": "Client AdressLine2",
                         "required": true,
@@ -599,7 +599,7 @@
                         }
                     },
                     {
-                        "name": "CanSwim",
+                        "name": "canSwim",
                         "in": "path",
                         "description": "Client CanSwim",
                         "required": true,
@@ -608,7 +608,7 @@
                         }
                     },
                     {
-                        "name": "Email",
+                        "name": "email",
                         "in": "path",
                         "description": "Client Email",
                         "required": true,
@@ -617,7 +617,7 @@
                         }
                     },
                     {
-                        "name": "Password",
+                        "name": "password",
                         "in": "path",
                         "description": "Client Password",
                         "required": true,
@@ -695,7 +695,7 @@
                 "operationId": "updateClient",
                 "parameters": [
                     {
-                        "name": "FirstName",
+                        "name": "firstName",
                         "in": "path",
                         "description": "Client FirstName",
                         "required": true,
@@ -704,7 +704,7 @@
                         }
                     },
                     {
-                        "name": "LastName",
+                        "name": "lastName",
                         "in": "path",
                         "description": "Client LastName",
                         "required": true,
@@ -713,16 +713,16 @@
                         }
                     },
                     {
-                        "name": "LastName",
+                        "name": "phoneNumber",
                         "in": "path",
-                        "description": "Client LastName",
+                        "description": "Client phoneNumber",
                         "required": true,
                         "schema": {
                             "type": "string"
                         }
                     },
                     {
-                        "name": "Country",
+                        "name": "country",
                         "in": "path",
                         "description": "Client Country",
                         "required": true,
@@ -731,7 +731,7 @@
                         }
                     },
                     {
-                        "name": "City",
+                        "name": "city",
                         "in": "path",
                         "description": "Client City",
                         "required": true,
@@ -740,7 +740,7 @@
                         }
                     },
                     {
-                        "name": "AdressLine",
+                        "name": "adressLine",
                         "in": "path",
                         "description": "Client AdressLine",
                         "required": true,
@@ -749,7 +749,7 @@
                         }
                     },
                     {
-                        "name": "AdressLine2",
+                        "name": "adressLine2",
                         "in": "path",
                         "description": "Client AdressLine2",
                         "required": true,
@@ -758,7 +758,7 @@
                         }
                     },
                     {
-                        "name": "CanSwim",
+                        "name": "canSwim",
                         "in": "path",
                         "description": "Client CanSwim",
                         "required": true,
@@ -767,7 +767,7 @@
                         }
                     },
                     {
-                        "name": "Email",
+                        "name": "email",
                         "in": "path",
                         "description": "Client Email",
                         "required": true,
@@ -776,7 +776,7 @@
                         }
                     },
                     {
-                        "name": "Password",
+                        "name": "password",
                         "in": "path",
                         "description": "Client Password",
                         "required": true,
@@ -1192,25 +1192,25 @@
                         }
                     },
                     {
-                        "name": "StartDate",
+                        "name": "startDate",
                         "in": "path",
-                        "description": "Course StartDate",
+                        "description": "Course startDate",
                         "required": true,
                         "schema": {
                             "type": "date"
                         }
                     },
                     {
-                        "name": "EndDate",
+                        "name": "endDate",
                         "in": "path",
-                        "description": "Course EndDate",
+                        "description": "Course endDate",
                         "required": true,
                         "schema": {
                             "type": "date"
                         }
                     },
                     {
-                        "name": "MaxNumber",
+                        "name": "maxNumber",
                         "in": "path",
                         "description": "Course MaxNumber",
                         "required": true,
@@ -1219,7 +1219,7 @@
                         }
                     },
                     {
-                        "name": "StartTime",
+                        "name": "startTime",
                         "in": "path",
                         "description": "Course name",
                         "required": true,
@@ -1228,7 +1228,7 @@
                         }
                     },
                     {
-                        "name": "Duration",
+                        "name": "duration",
                         "in": "path",
                         "description": "Course Duration",
                         "required": true,
@@ -1237,7 +1237,7 @@
                         }
                     },
                     {
-                        "name": "WeekDay",
+                        "name": "weekDay",
                         "in": "path",
                         "description": "Course WeekLds",
                         "required": true,
@@ -1246,7 +1246,7 @@
                         }
                     },
                     {
-                        "name": "WeekLds",
+                        "name": "weekLds",
                         "in": "path",
                         "description": "Course WeekLds",
                         "required": true,
@@ -1342,7 +1342,7 @@
                         }
                     },
                     {
-                        "name": "StartDate",
+                        "name": "startDate",
                         "in": "path",
                         "description": "Course StartDate",
                         "required": true,
@@ -1351,7 +1351,7 @@
                         }
                     },
                     {
-                        "name": "EndDate",
+                        "name": "endDate",
                         "in": "path",
                         "description": "Course EndDate",
                         "required": true,
@@ -1360,7 +1360,7 @@
                         }
                     },
                     {
-                        "name": "MaxNumber",
+                        "name": "maxNumber",
                         "in": "path",
                         "description": "Course MaxNumber",
                         "required": true,
@@ -1875,7 +1875,7 @@
                         }
                     },
                     {
-                        "name": "Requirements",
+                        "name": "requirements",
                         "in": "path",
                         "description": "CourseTemplate Requirements",
                         "required": true,
@@ -1902,7 +1902,7 @@
                         }
                     },
                     {
-                        "name": "CourseType",
+                        "name": "courseType",
                         "in": "path",
                         "description": "CourseTemplate CourseType",
                         "required": true,
@@ -2043,7 +2043,7 @@
                         }
                     },
                     {
-                        "name": "Requirements",
+                        "name": "requirements",
                         "in": "path",
                         "description": "CourseTemplate Requirements",
                         "required": true,
@@ -2070,7 +2070,7 @@
                         }
                     },
                     {
-                        "name": "CourseType",
+                        "name": "courseType",
                         "in": "path",
                         "description": "CourseTemplate CourseType",
                         "required": true,
@@ -2978,9 +2978,9 @@
                         }
                     },
                     {
-                        "name": "StartDate",
+                        "name": "startDate",
                         "in": "path",
-                        "description": "Staff StartDate",
+                        "description": "Staff startDate",
                         "required": true,
                         "schema": {
                             "type": "date"
@@ -3083,7 +3083,7 @@
                         }
                     },
                     {
-                        "name": "StartDate",
+                        "name": "startDate",
                         "in": "path",
                         "description": "Staff StartDate",
                         "required": true,

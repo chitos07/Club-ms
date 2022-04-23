@@ -10,8 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 /**
  * @OA\Info(
  *      version="1.0.0",
- *      title="Laravel OpenApi Demo Documentation",
- *      description="L5 Swagger OpenApi description",
+ *      title="Club Project",
+ *      description="Api description",
  *      @OA\Contact(
  *          email="admin@admin.com"
  *      ),
