@@ -12,8 +12,8 @@ class Staff extends Model
 
     protected $guarded = [];
 
-    public function branche(): object {
-        return $this->belongsTo(Branche::class);
+    public function branch(): object {
+        return $this->belongsTo(Branch::class);
     }
 
     public function user(): object {
