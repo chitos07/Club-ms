@@ -26,7 +26,7 @@ class UpdateStaffRequest extends FormRequest
         return [
             'user_id'    => ['required','integer'],
             'StartDate'  => ['nullable','date'],
-            'branche_id' => ['required','integer'],
+            'branch_id' => ['required','integer'],
             'role'       => ['required','string'],
         ];
     }

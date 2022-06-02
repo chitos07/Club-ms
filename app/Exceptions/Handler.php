@@ -42,14 +42,11 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $e)
     {
-//        if ($e instanceof MissingScopeException) {
-//            return response()->json([
-//                'message' => 'You are Not authorized  to access this area'
-//            ], 403);
-//        }
-//        if($e instanceof ModelNotFoundException){
-//            abort(404,'No Model to deleted');
-//        }
+
+
+        if($e instanceof MissingScopeException && $request->wantsJson()){
+            return response()->json(['error'=> 'Unauthorized'],401);
+        }
 
 
         return parent::render($request, $e);

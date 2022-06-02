@@ -24,7 +24,7 @@ class UpdateResourceRequest extends FormRequest
     public function rules()
     {
         return [
-            'branche_id' => ['required','integer'],
+            'branch_id' => ['required','integer'],
             'name' => ['required','string','max:20','min:5'],
         ];
     }

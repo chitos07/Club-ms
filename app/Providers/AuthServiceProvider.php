@@ -29,12 +29,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        if (! $this->app->routesAreCached()) {
+        if (!$this->app->routesAreCached()) {
             Passport::routes();
+           Passport::personalAccessClient('Qwy4Y5y5nmYLtXQqRdr9KZHSTyNaQdvfSC9AwoyX');
+
+
         }
-
         // get All Roles From role Table
-        Passport::tokensCan(Role::getroles());
-
+       Passport::tokensCan(Role::getRoles());
     }
 }

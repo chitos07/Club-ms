@@ -24,7 +24,7 @@ class UpdateCourseTemplateRequest extends FormRequest
     public function rules()
     {
         return [
-            'branche_id' => ['required','integer'],
+            'branch_id' => ['required','integer'],
             'course_category_id' => ['required','integer'],
             'cancellation_policy_id' => ['required','integer'],
             'name' => ['required','string'],
