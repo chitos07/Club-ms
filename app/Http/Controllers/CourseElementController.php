@@ -12,11 +12,11 @@ class CourseElementController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/courseelement",
+     *      path="/courseelements",
      *      operationId="getCourseElement",
-     *      tags={"CourseElement"},
-     *      summary="Get list of CourseElement",
-     *      description="Returns list of CourseElement",
+     *      tags={"CourseElements"},
+     *      summary="Get list of CourseElements",
+     *      description="Returns list of CourseElements",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -29,16 +29,16 @@ class CourseElementController extends Controller
 
     public function index(): object
     {
-        return CourseElementResource::collection(CourseElement::all());
+        return CourseElementResource::collection(CourseElement::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/courseelement",
+     *      path="/courseelements",
      *      operationId="storeCourseElement",
-     *      tags={"CourseElement"},
-     *      summary="store CourseElement information",
-     *      description="store CourseElement  data",
+     *      tags={"CourseElements"},
+     *      summary="store CourseElements information",
+     *      description="store CourseElements  data",
      *     @OA\Parameter(
      *          name="course_template_id",
      *          description="CourseElement course_template_id",
@@ -98,11 +98,11 @@ class CourseElementController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/courseelement/{id}",
+     *      path="/courseelements/{id}",
      *      operationId="getCourseElementById",
-     *      tags={"CourseElement"},
-     *      summary="Get CourseElement information",
-     *      description="Returns CourseElement data",
+     *      tags={"CourseElements"},
+     *      summary="Get CourseElements information",
+     *      description="Returns CourseElements data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseElement id",
@@ -133,11 +133,11 @@ class CourseElementController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/courseelement/{id}",
+     *      path="/courseelements/{id}",
      *      operationId="updateCourseElement",
-     *      tags={"CourseElement"},
-     *      summary="update CourseElement information",
-     *      description="update CourseElement  data",
+     *      tags={"CourseElements"},
+     *      summary="update CourseElements information",
+     *      description="update CourseElements  data",
      *     @OA\Parameter(
      *          name="course_template_id",
      *          description="CourseElement course_template_id",
@@ -198,11 +198,11 @@ class CourseElementController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/courseelement/{id}",
+     *      path="/courseelements/{id}",
      *      operationId="deleteCourseElementById",
-     *      tags={"CourseElement"},
-     *      summary="Delete CourseElement information",
-     *      description="Delete CourseElement data",
+     *      tags={"CourseElements"},
+     *      summary="Delete CourseElements information",
+     *      description="Delete CourseElements data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseElement id",
@@ -239,11 +239,11 @@ class CourseElementController extends Controller
 
     /**
      * @OA\Get  (
-     *      path="/courseelement/restore/{id}",
+     *      path="/courseelements/restore/{id}",
      *      operationId="restoreCourseElementById",
-     *      tags={"CourseElement"},
-     *      summary="Restore deleted CourseElement information",
-     *      description="Restore deleted CourseElement data",
+     *      tags={"CourseElements"},
+     *      summary="Restore deleted CourseElements information",
+     *      description="Restore deleted CourseElements data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseElement id",
@@ -280,11 +280,11 @@ class CourseElementController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/courseelement/restore",
+     *      path="/courseelements/restore",
      *      operationId="restoreAllCourseElement",
-     *      tags={"CourseElement"},
-     *      summary="restore all deleted CourseElement information",
-     *      description="restore all  CourseElement data",
+     *      tags={"CourseElements"},
+     *      summary="restore all deleted CourseElements information",
+     *      description="restore all  CourseElements data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

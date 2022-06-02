@@ -11,11 +11,11 @@ class CourseController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/course",
+     *      path="/courses",
      *      operationId="getCourse",
-     *      tags={"Course"},
-     *      summary="Get list of Course",
-     *      description="Returns list of Course",
+     *      tags={"Courses"},
+     *      summary="Get list of Courses",
+     *      description="Returns list of Courses",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -28,17 +28,17 @@ class CourseController extends Controller
 
     public function index(): object
     {
-        return CourseResource::collection(Course::all());
+        return CourseResource::collection(Course::paginate(10));
     }
 
 
     /**
      * @OA\Post (
-     *      path="/course",
+     *      path="/courses",
      *      operationId="storeCourse",
-     *      tags={"Course"},
-     *      summary="store Course information",
-     *      description="store Course  data",
+     *      tags={"Courses"},
+     *      summary="store Courses information",
+     *      description="store Courses  data",
      *     @OA\Parameter(
      *          name="course_template_id",
      *          description="Course course_template_id",
@@ -155,11 +155,11 @@ class CourseController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/course/{id}",
+     *      path="/courses/{id}",
      *      operationId="getCourseById",
-     *      tags={"Course"},
-     *      summary="Get Course information",
-     *      description="Returns Course data",
+     *      tags={"Courses"},
+     *      summary="Get Courses information",
+     *      description="Returns Courses data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Course id",
@@ -194,11 +194,11 @@ class CourseController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/course/{id}",
+     *      path="/courses/{id}",
      *      operationId="updateCourse",
-     *      tags={"Course"},
-     *      summary="update Course information",
-     *      description="update Course  data",
+     *      tags={"Courses"},
+     *      summary="update Courses information",
+     *      description="update Courses  data",
      *     @OA\Parameter(
      *          name="course_template_id",
      *          description="Course course_template_id",
@@ -271,11 +271,11 @@ class CourseController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/course/{id}",
+     *      path="/courses/{id}",
      *      operationId="deleteCourseById",
-     *      tags={"Course"},
-     *      summary="delete Course information",
-     *      description="delete Course data",
+     *      tags={"Courses"},
+     *      summary="delete Courses information",
+     *      description="delete Courses data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Course id",
@@ -315,11 +315,11 @@ class CourseController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/course/restore/{id}",
+     *      path="/courses/restore/{id}",
      *      operationId="restoreCourse",
-     *      tags={"Course"},
-     *      summary="restore deleted Course information",
-     *      description="restore Course data",
+     *      tags={"Courses"},
+     *      summary="restore deleted Courses information",
+     *      description="restore Courses data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Course id",
@@ -355,11 +355,11 @@ class CourseController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/course/restore",
+     *      path="/courses/restore",
      *      operationId="restoreAllCourse",
-     *      tags={"Course"},
-     *      summary="restore all deleted Course information",
-     *      description="restore all  Course data",
+     *      tags={"Courses"},
+     *      summary="restore all deleted Courses information",
+     *      description="restore all  Courses data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

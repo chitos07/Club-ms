@@ -11,9 +11,9 @@ class CancellationPolicyController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/cancellationpolicy",
+     *      path="/cancellationpolicies",
      *      operationId="getCancellationPolicyList",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="Get list of CancellationPolicy",
      *      description="Returns list of CancellationPolicy",
      *      @OA\Response(
@@ -27,17 +27,17 @@ class CancellationPolicyController extends Controller
      */
     public function index(): object
     {
-        return CancellationPolicyResource::collection(CancellationPolicy::all());
+        return CancellationPolicyResource::collection(CancellationPolicy::paginate(15));
 
     }
 
     /**
      * @OA\Post (
-     *      path="/cancellationpolicy",
+     *      path="/cancellationpolicies",
      *      operationId="storeCancellationPolicy",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="Get CancellationPolicy information",
-     *      description="CancellationPolicy branche data",
+     *      description="CancellationPolicy branch data",
      *     @OA\Parameter(
      *          name="title",
      *          description="CancellationPolicy title",
@@ -79,9 +79,9 @@ class CancellationPolicyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/cancellationpolicy/{id}",
+     *      path="/cancellationpolicies/{id}",
      *      operationId="getCancellationPolicyById",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="Get CancellationPolicy information",
      *      description="Returns CancellationPolicy data",
      *      @OA\Parameter(
@@ -113,9 +113,9 @@ class CancellationPolicyController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/cancellationpolicy/{id}",
+     *      path="/cancellationpolicies/{id}",
      *      operationId="updateCancellationPolicy",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="Get CancellationPolicy information",
      *      description="update CancellationPolicy data",
      *     @OA\Parameter(
@@ -157,9 +157,9 @@ class CancellationPolicyController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/cancellationpolicy/{id}",
+     *      path="/cancellationpolicies/{id}",
      *      operationId="deleteCancellationPolicyById",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="delete CancellationPolicy information",
      *      description="delete CancellationPolicy data",
      *      @OA\Parameter(
@@ -197,9 +197,9 @@ class CancellationPolicyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/cancellationpolicy/restore/{id}",
+     *      path="/cancellationpolicies/restore/{id}",
      *      operationId="restoreCancellationPolicyById",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="restore deleted CancellationPolicy information",
      *      description="restore CancellationPolicy data",
      *      @OA\Parameter(
@@ -236,9 +236,9 @@ class CancellationPolicyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/cancellationpolicy/restore",
+     *      path="/cancellationpolicies/restore",
      *      operationId="restoreAllCancellationPolicy",
-     *      tags={"CancellationPolicy"},
+     *      tags={"CancellationPolicies"},
      *      summary="restore all deleted CancellationPolicy information",
      *      description="restore all  CancellationPolicy data",
      *      @OA\Response(

@@ -14,11 +14,11 @@ class CurrencyController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/currency",
+     *      path="/currencies",
      *      operationId="getCurrenyList",
-     *      tags={"Currency"},
-     *      summary="Get list of projects",
-     *      description="Returns list of projects",
+     *      tags={"Currencies"},
+     *      summary="Get list of Currencies",
+     *      description="Returns list of Currencies",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -30,16 +30,16 @@ class CurrencyController extends Controller
 
     public function index(): object
     {
-        return CurrencyResource::collection(Currency::all());
+        return CurrencyResource::collection(Currency::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/currency",
+     *      path="/currencies",
      *      operationId="storeCurrency",
-     *      tags={"Currency"},
-     *      summary="Get Currency information",
-     *      description="Returns currency data",
+     *      tags={"Currencies"},
+     *      summary="Get Currencies information",
+     *      description="Returns Currencies data",
      *      @OA\Parameter(
      *          name="code",
      *          description="Currency code",
@@ -80,11 +80,11 @@ class CurrencyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/currency/{id}",
+     *      path="/currencies/{id}",
      *      operationId="getCuurencyById",
-     *      tags={"Currency"},
-     *      summary="Get currency information",
-     *      description="Returns currency data",
+     *      tags={"Currencies"},
+     *      summary="Get Currencies information",
+     *      description="Returns Currencies data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Project id",
@@ -118,11 +118,11 @@ class CurrencyController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/currency/{id}",
+     *      path="/currencies/{id}",
      *      operationId="updateCurrency",
-     *      tags={"Currency"},
-     *      summary="Update Currency information",
-     *      description="Returns currency data",
+     *      tags={"Currencies"},
+     *      summary="Update Currencies information",
+     *      description="Returns Currencies data",
      *      @OA\Parameter(
      *          name="code",
      *          description="Currency code",
@@ -167,11 +167,11 @@ class CurrencyController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/currency/{id}",
+     *      path="/currencies/{id}",
      *      operationId="deleteCurrencyById",
-     *      tags={"Currency"},
-     *      summary="delete currency information",
-     *      description="delete currency data",
+     *      tags={"Currencies"},
+     *      summary="delete Currencies information",
+     *      description="delete Currencies data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Project id",
@@ -209,11 +209,11 @@ class CurrencyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/currency/restore/{id}",
+     *      path="/currencies/restore/{id}",
      *      operationId="restoreCurrencyById",
-     *      tags={"Currency"},
-     *      summary="restore deleted currency information",
-     *      description="restore currency data",
+     *      tags={"Currencies"},
+     *      summary="restore deleted Currencies information",
+     *      description="restore Currencies data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Project id",
@@ -244,11 +244,11 @@ class CurrencyController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/currency/restore",
+     *      path="/currencies/restore",
      *      operationId="restoreAllCurrency",
-     *      tags={"Currency"},
-     *      summary="restore all deleted currency information",
-     *      description="restore all  currency data",
+     *      tags={"Currencies"},
+     *      summary="restore all deleted Currencies information",
+     *      description="restore all  Currencies data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

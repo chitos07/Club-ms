@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreResourceRequest;
 use App\Http\Requests\UpdateResourceRequest;
-use App\Http\Resources\resourceResource;
+use App\Http\Resources\resourcesResource;
 use App\Models\Resource;
 
 class ResourceController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/resource",
+     *      path="/resources",
      *      operationId="getResourceList",
-     *      tags={"Resource"},
-     *      summary="Get list of Resource",
-     *      description="Returns list of Resource",
+     *      tags={"Resources"},
+     *      summary="Get list of Resources",
+     *      description="Returns list of Resources",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -25,19 +25,19 @@ class ResourceController extends Controller
      */
     public function index(): object
     {
-        return resourceResource::collection(Resource::all());
+        return resourcesResource::collection(Resource::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/resource",
+     *      path="/resources",
      *      operationId="storeResource",
-     *      tags={"Resource"},
-     *      summary="Get Resource information",
-     *      description="Returns Resource data",
+     *      tags={"Resources"},
+     *      summary="Get Resources information",
+     *      description="Resources Resource data",
      *      @OA\Parameter(
-     *          name="branche_id",
-     *          description="Resource branche_id",
+     *          name="branch_id",
+     *          description="Resource branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -69,17 +69,17 @@ class ResourceController extends Controller
 
     public function store(StoreResourceRequest $request): object
     {
-        $resource = Resource::create($request->only(['branche_id','name']));
-        return new resourceResource($resource);
+        $resources = Resource::create($request->only(['branch_id','name']));
+        return new resourcesResource($resources);
     }
 
     /**
      * @OA\Get(
-     *      path="/resource/{id}",
+     *      path="/resources/{id}",
      *      operationId="getResourceById",
-     *      tags={"Resource"},
-     *      summary="Get resource information",
-     *      description="Returns resource data",
+     *      tags={"Resources"},
+     *      summary="Get Resources information",
+     *      description="Returns Resources data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Resource id",
@@ -103,24 +103,24 @@ class ResourceController extends Controller
      * )
      */
 
-    public function show(Resource $resource): object
+    public function show(Resource $resources): object
     {
-        if($resource->exists){
-            return resourceResource::make($resource->load('branche'));
+        if($resources->exists){
+            return resourcesResource::make($resources->load('branch'));
         }
         abort(404,'no data');
     }
 
     /**
      * @OA\Put  (
-     *      path="/resource/{id}",
+     *      path="/resources/{id}",
      *      operationId="updateResource",
-     *      tags={"Resource"},
-     *      summary="update Resource information",
-     *      description="update Resource data",
+     *      tags={"Resources"},
+     *      summary="update Resources information",
+     *      description="update Resources data",
      *      @OA\Parameter(
-     *          name="branche_id",
-     *          description="Resource branche_id",
+     *          name="branch_id",
+     *          description="Resource branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -149,22 +149,22 @@ class ResourceController extends Controller
      *     },
      * )
      */
-    public function update(UpdateResourceRequest $request, Resource $resource): object
+    public function update(UpdateResourceRequest $request, Resource $resources): object
     {
-        if($resource->exists){
-            $resource->update($request->only(['branche_id', 'name']));
-            return new resourceResource($resource);
+        if($resources->exists){
+            $resources->update($request->only(['branch_id', 'name']));
+            return new resourcesResource($resources);
         }
         abort(404,'error');
     }
 
     /**
      * @OA\Delete (
-     *      path="/resource/{id}",
+     *      path="/resources/{id}",
      *      operationId="deleteResourceById",
-     *      tags={"Resource"},
-     *      summary="delete resource information",
-     *      description="delete resource data",
+     *      tags={"Resources"},
+     *      summary="delete Resources information",
+     *      description="delete Resources data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Project id",
@@ -188,9 +188,9 @@ class ResourceController extends Controller
      * )
      */
 
-    public function destroy(Resource $resource): object
+    public function destroy(Resource $resources): object
     {
-             if ($resource->delete()) {
+             if ($resources->delete()) {
                     return response()->json([
                        'message' => 'Resource deleted succsfuly'
                     ], 200);
@@ -200,11 +200,11 @@ class ResourceController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/resource/restore/{id}",
+     *      path="/resources/restore/{id}",
      *      operationId="restoreResourceById",
-     *      tags={"Resource"},
-     *      summary="restore deleted Resource information",
-     *      description="restore Resource data",
+     *      tags={"Resources"},
+     *      summary="restore deleted Resources information",
+     *      description="restore Resources data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Resource id",
@@ -240,11 +240,11 @@ class ResourceController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/resource/restore",
+     *      path="/resources/restore",
      *      operationId="restoreAllResource",
-     *      tags={"Resource"},
-     *      summary="restore all deleted resource information",
-     *      description="restore all  resource data",
+     *      tags={"Resources"},
+     *      summary="restore all deleted Resources information",
+     *      description="restore all  Resources data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

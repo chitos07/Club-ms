@@ -6,16 +6,18 @@ use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Http\Resources\ClientResource;
 use App\Models\Client;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class ClientController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/client",
+     *      path="/clients",
      *      operationId="getClientList",
-     *      tags={"Client"},
-     *      summary="Get list of Client",
-     *      description="Returns list of Client",
+     *      tags={"Clients"},
+     *      summary="Get list of Clients",
+     *      description="Returns list of Clients",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -25,21 +27,21 @@ class ClientController extends Controller
      *
      *     )
      */
-    public function index(): object
+    public function index(): JsonResource
     {
-        return ClientResource::collection(Client::all());
+        return ClientResource::collection(Client::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/client",
+     *      path="/clients",
      *      operationId="storeClient",
-     *      tags={"Client"},
-     *      summary="Get Client information",
-     *      description="Client branche data",
+     *      tags={"Clients"},
+     *      summary="Get Clients information",
+     *      description="Clients branch data",
      *     @OA\Parameter(
      *          name="firstName",
-     *          description="Client FirstName",
+     *          description="Clients FirstName",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -48,7 +50,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="lastName",
-     *          description="Client LastName",
+     *          description="Clients LastName",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -57,7 +59,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="phoneNumber",
-     *          description="Client phoneNumber",
+     *          description="Clients phoneNumber",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -66,7 +68,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="country",
-     *          description="Client Country",
+     *          description="Clients Country",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -75,7 +77,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="city",
-     *          description="Client City",
+     *          description="Clients City",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -84,7 +86,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="adressLine",
-     *          description="Client AdressLine",
+     *          description="Clients AdressLine",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -93,7 +95,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="adressLine2",
-     *          description="Client AdressLine2",
+     *          description="Clients AdressLine2",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -102,7 +104,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="canSwim",
-     *          description="Client CanSwim",
+     *          description="Clients CanSwim",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -111,7 +113,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="email",
-     *          description="Client Email",
+     *          description="Clients Email",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -120,7 +122,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="password",
-     *          description="Client Password",
+     *          description="Clients Password",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -161,14 +163,14 @@ class ClientController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/client/{id}",
+     *      path="/clients/{id}",
      *      operationId="getClientById",
-     *      tags={"Client"},
-     *      summary="Get Client information",
-     *      description="Returns Client data",
+     *      tags={"Clients"},
+     *      summary="Get Clients information",
+     *      description="Returns Clients data",
      *      @OA\Parameter(
      *          name="id",
-     *          description="Client id",
+     *          description="Clients id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -200,14 +202,14 @@ class ClientController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/client/{id}",
+     *      path="/clients/{id}",
      *      operationId="updateClient",
-     *      tags={"Client"},
-     *      summary="Update Client information",
-     *      description="Update Client  data",
+     *      tags={"Clients"},
+     *      summary="Update Clients information",
+     *      description="Update Clients  data",
      *     @OA\Parameter(
      *          name="firstName",
-     *          description="Client FirstName",
+     *          description="Clients FirstName",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -216,7 +218,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="lastName",
-     *          description="Client LastName",
+     *          description="Clients LastName",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -225,7 +227,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="phoneNumber",
-     *          description="Client phoneNumber",
+     *          description="Clients phoneNumber",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -234,7 +236,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="country",
-     *          description="Client Country",
+     *          description="Clients Country",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -243,7 +245,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="city",
-     *          description="Client City",
+     *          description="Clients City",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -252,7 +254,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="adressLine",
-     *          description="Client AdressLine",
+     *          description="Clients AdressLine",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -261,7 +263,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="adressLine2",
-     *          description="Client AdressLine2",
+     *          description="Clients AdressLine2",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -270,7 +272,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="canSwim",
-     *          description="Client CanSwim",
+     *          description="Clients CanSwim",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -279,7 +281,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="email",
-     *          description="Client Email",
+     *          description="Clients Email",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -288,7 +290,7 @@ class ClientController extends Controller
      *      ),
      *      @OA\Parameter(
      *          name="password",
-     *          description="Client Password",
+     *          description="Clients Password",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -331,14 +333,14 @@ class ClientController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/client/{id}",
+     *      path="/clients/{id}",
      *      operationId="deleteClientById",
-     *      tags={"Client"},
-     *      summary="delete Client information",
-     *      description="delete Client data",
+     *      tags={"Clients"},
+     *      summary="delete Clients information",
+     *      description="delete Clients data",
      *      @OA\Parameter(
      *          name="id",
-     *          description="Client id",
+     *          description="Clients id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -372,14 +374,14 @@ class ClientController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/client/restore/{id}",
+     *      path="/clients/restore/{id}",
      *      operationId="restoreClientById",
-     *      tags={"Client"},
-     *      summary="restore Client information",
-     *      description="restore Client data",
+     *      tags={"Clients"},
+     *      summary="restore Clients information",
+     *      description="restore Clients data",
      *      @OA\Parameter(
      *          name="id",
-     *          description="Client id",
+     *          description="Clients id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -411,11 +413,11 @@ class ClientController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/client/restore",
+     *      path="/clients/restore",
      *      operationId="restoreAllClient",
-     *      tags={"Client"},
-     *      summary="restore all deleted Client information",
-     *      description="restore all  Client data",
+     *      tags={"Clients"},
+     *      summary="restore all deleted Clients information",
+     *      description="restore all  Clients data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

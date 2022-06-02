@@ -13,11 +13,11 @@ class UserController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/user",
+     *      path="/users",
      *      operationId="getUserList",
-     *      tags={"User"},
+     *      tags={"Users"},
      *      summary="Get list of Users",
-     *      description="Returns list of Staff",
+     *      description="Returns list of Users",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -27,17 +27,16 @@ class UserController extends Controller
      */
     public function index(): object
     {
-
-        return UserResource::collection(User::all());
+        return UserResource::collection(User::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/user",
+     *      path="/users",
      *      operationId="storeUser",
-     *      tags={"User"},
-     *      summary="Store User information",
-     *      description="Returns User data",
+     *      tags={"Users"},
+     *      summary="Store Users information",
+     *      description="Returns Users data",
      *      @OA\Parameter(
      *          name="name",
      *          description="User name",
@@ -104,11 +103,11 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/user/{id}",
+     *      path="/users/{id}",
      *      operationId="getUserById",
-     *      tags={"User"},
-     *      summary="Get User information",
-     *      description="Returns User data",
+     *      tags={"Users"},
+     *      summary="Get Users information",
+     *      description="Returns Users data",
      *      @OA\Parameter(
      *          name="id",
      *          description="User id",
@@ -138,11 +137,11 @@ class UserController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/user/{id}",
+     *      path="/users/{id}",
      *      operationId="updateUser",
-     *      tags={"User"},
-     *      summary="Update User information",
-     *      description="Returns User data",
+     *      tags={"Users"},
+     *      summary="Update Users information",
+     *      description="Returns Users data",
      *      @OA\Parameter(
      *          name="name",
      *          description="User name",
@@ -209,11 +208,11 @@ class UserController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/user/{id}",
+     *      path="/users/{id}",
      *      operationId="DeleteUserById",
-     *      tags={"User"},
-     *      summary="Delete User information",
-     *      description="Delete User data",
+     *      tags={"Users"},
+     *      summary="Delete Users information",
+     *      description="Delete Users data",
      *      @OA\Parameter(
      *          name="id",
      *          description="User id",
@@ -242,7 +241,7 @@ class UserController extends Controller
         if($user->exists){
             if($user->delete()){
                 return response()->json([
-                    'message' => 'user deleted succsfuly'
+                    'message' => 'users deleted succsfuly'
                 ],200);
             }
         }
@@ -251,11 +250,11 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/user/restore/{id}",
+     *      path="/users/restore/{id}",
      *      operationId="restoreUserById",
-     *      tags={"User"},
-     *      summary="restore deleted user information",
-     *      description="restore user data",
+     *      tags={"Users"},
+     *      summary="restore deleted Users information",
+     *      description="restore Users data",
      *      @OA\Parameter(
      *          name="id",
      *          description="User id",
@@ -290,11 +289,11 @@ class UserController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/user/restore",
+     *      path="/users/restore",
      *      operationId="restoreAllUser",
-     *      tags={"User"},
-     *      summary="restore all deleted user information",
-     *      description="restore all  user data",
+     *      tags={"Users"},
+     *      summary="restore all deleted Users information",
+     *      description="restore all  Users data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

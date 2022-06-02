@@ -12,11 +12,11 @@ class CourseCategoryController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/coursecategory",
+     *      path="/coursecategories",
      *      operationId="getCourseCategory",
-     *      tags={"CourseCategory"},
-     *      summary="Get list of CourseCategory",
-     *      description="Returns list of CourseCategory",
+     *      tags={"CourseCategories"},
+     *      summary="Get list of CourseCategories",
+     *      description="Returns list of CourseCategories",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -29,16 +29,16 @@ class CourseCategoryController extends Controller
 
     public function index(): object
     {
-        return CourseCatResource::collection(CourseCategory::all());
+        return CourseCatResource::collection(CourseCategory::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/coursecategory",
+     *      path="/coursecategories",
      *      operationId="storeCourseCategory",
-     *      tags={"CourseCategory"},
-     *      summary="store CourseCategory information",
-     *      description="store CourseCategory  data",
+     *      tags={"CourseCategories"},
+     *      summary="store CourseCategories information",
+     *      description="store CourseCategories  data",
      *     @OA\Parameter(
      *          name="name",
      *          description="CourseCategory name",
@@ -70,11 +70,11 @@ class CourseCategoryController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursecategory/{id}",
+     *      path="/coursecategories/{id}",
      *      operationId="getCourseCategoryById",
-     *      tags={"CourseCategory"},
-     *      summary="Get CourseCategory information",
-     *      description="Returns CourseCategory data",
+     *      tags={"CourseCategories"},
+     *      summary="Get CourseCategories information",
+     *      description="Returns CourseCategories data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseCategory id",
@@ -108,11 +108,11 @@ class CourseCategoryController extends Controller
 
     /**
      * @OA\Put  (
-     *      path="/coursecategory/{id}",
+     *      path="/coursecategories/{id}",
      *      operationId="updateCourseCategory",
-     *      tags={"CourseCategory"},
-     *      summary="update CourseCategory information",
-     *      description="update CourseCategory  data",
+     *      tags={"CourseCategories"},
+     *      summary="update CourseCategories information",
+     *      description="update CourseCategories  data",
      *     @OA\Parameter(
      *          name="name",
      *          description="CourseCategory name",
@@ -144,11 +144,11 @@ class CourseCategoryController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/coursecategory/{id}",
+     *      path="/coursecategories/{id}",
      *      operationId="deleteCourseCategoryById",
-     *      tags={"CourseCategory"},
-     *      summary="delete CourseCategory information",
-     *      description="delete CourseCategory data",
+     *      tags={"CourseCategories"},
+     *      summary="delete CourseCategories information",
+     *      description="delete CourseCategories data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseCategory id",
@@ -182,11 +182,11 @@ class CourseCategoryController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursecategory/restore/{id}",
+     *      path="/coursecategories/restore/{id}",
      *      operationId="restoreCourseCategory",
-     *      tags={"CourseCategory"},
-     *      summary="restore deleted CourseCategory information",
-     *      description="restore CourseCategory data",
+     *      tags={"CourseCategories"},
+     *      summary="restore deleted CourseCategories information",
+     *      description="restore CourseCategories data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CancellationPolicy id",
@@ -221,9 +221,9 @@ class CourseCategoryController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursecategory/restore",
+     *      path="/coursecategories/restore",
      *      operationId="restoreAllCourseCategory",
-     *      tags={"CourseCategory"},
+     *      tags={"CourseCategories"},
      *      summary="restore all deleted CourseCategory information",
      *      description="restore all  CourseCategory data",
      *      @OA\Response(

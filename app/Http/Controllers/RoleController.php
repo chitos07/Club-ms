@@ -15,11 +15,11 @@ class RoleController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/role",
+     *      path="/roles",
      *      operationId="getRoleList",
-     *      tags={"Role"},
-     *      summary="Get list of Role",
-     *      description="Returns list of Role",
+     *      tags={"Roles"},
+     *      summary="Get list of Roles",
+     *      description="Returns list of Roles",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -39,19 +39,19 @@ class RoleController extends Controller
     public function index(): object
     {
 
-        return RoleResource::collection(Role::all());
+        return RoleResource::collection(Role::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/role",
+     *      path="/roles",
      *      operationId="storeRole",
-     *      tags={"Role"},
-     *      summary="Get Role information",
-     *      description="Returns Role data",
+     *      tags={"Roles"},
+     *      summary="Get Roles information",
+     *      description="Returns Roles data",
      *      @OA\Parameter(
-     *          name="role",
-     *          description="Role role",
+     *          name="roles",
+     *          description="Role roles",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -73,7 +73,7 @@ class RoleController extends Controller
      */
     public function store(StoreroleRequest $request): object
     {
-        $role = Role::create($request->only(['role']));
+        $role = Role::create($request->only(['roles']));
 
         return new RoleResource($role);
     }
@@ -81,11 +81,11 @@ class RoleController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/role/{id}",
+     *      path="/roles/{id}",
      *      operationId="getRoleById",
-     *      tags={"Role"},
-     *      summary="Get Role information",
-     *      description="Returns Role data",
+     *      tags={"Roles"},
+     *      summary="Get Roles information",
+     *      description="Returns Roles data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Role id",
@@ -116,14 +116,14 @@ class RoleController extends Controller
 
     /**
      * @OA\Post (
-     *      path="/role/{id}",
+     *      path="/roles/{id}",
      *      operationId="updateRole",
-     *      tags={"Role"},
-     *      summary="update Role information",
-     *      description="update Role data",
+     *      tags={"Roles"},
+     *      summary="update Roles information",
+     *      description="update Roles data",
      *      @OA\Parameter(
-     *          name="role",
-     *          description="Role role",
+     *          name="roles",
+     *          description="Role roles",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -146,18 +146,18 @@ class RoleController extends Controller
     public function update(UpdateroleRequest $request, Role $role): object
     {
 
-        $role->update($request->only(['role']));
+        $role->update($request->only(['roles']));
 
         return new RoleResource($role);
     }
 
     /**
      * @OA\Delete (
-     *      path="/role/{id}",
+     *      path="/roles/{id}",
      *      operationId="deleteRoleById",
-     *      tags={"Role"},
-     *      summary="delete Role information",
-     *      description="delete Role data",
+     *      tags={"Roles"},
+     *      summary="delete Roles information",
+     *      description="delete Roles data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Role id",
@@ -181,7 +181,7 @@ class RoleController extends Controller
      * )
      */
 
-    public function destroy(role $role): object
+    public function destroy(roles $role): object
     {
         if ($role->exists) {
             if ($role->delete()) {
@@ -195,11 +195,11 @@ class RoleController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/role/restore/{id}",
+     *      path="/roles/restore/{id}",
      *      operationId="restoreRoleById",
-     *      tags={"Role"},
-     *      summary="restore deleted Resource information",
-     *      description="restore role data",
+     *      tags={"Roles"},
+     *      summary="restore deleted Roles information",
+     *      description="restore roles data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Role id",
@@ -234,11 +234,11 @@ class RoleController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/role/restore",
+     *      path="/roles/restore",
      *      operationId="restoreAllRole",
-     *      tags={"Role"},
-     *      summary="restore all deleted role information",
-     *      description="restore all  role data",
+     *      tags={"Roles"},
+     *      summary="restore all deleted Roles information",
+     *      description="restore all  Roles data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

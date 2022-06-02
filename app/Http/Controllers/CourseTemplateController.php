@@ -11,11 +11,11 @@ class CourseTemplateController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/coursetemplate",
+     *      path="/coursetemplates",
      *      operationId="getCourseTemplate",
-     *      tags={"CourseTemplate"},
-     *      summary="Get list of CourseTemplate",
-     *      description="Returns list of CourseTemplate",
+     *      tags={"CourseTemplates"},
+     *      summary="Get list of CourseTemplates",
+     *      description="Returns list of CourseTemplates",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -28,19 +28,19 @@ class CourseTemplateController extends Controller
 
     public function index(): object
     {
-        return CourseTemplateResource::collection(CourseTemplate::latest()->get());
+        return CourseTemplateResource::collection(CourseTemplate::latest()->paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/coursetemplate",
+     *      path="/coursetemplates",
      *      operationId="storeCourseTemplate",
-     *      tags={"CourseTemplate"},
-     *      summary="store CourseTemplate information",
-     *      description="store CourseTemplate  data",
+     *      tags={"CourseTemplates"},
+     *      summary="store CourseTemplates information",
+     *      description="store CourseTemplates  data",
      *     @OA\Parameter(
-     *          name="branche_id",
-     *          description="CourseTemplate branche_id",
+     *          name="branch_id",
+     *          description="CourseTemplate branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -156,7 +156,7 @@ class CourseTemplateController extends Controller
     public function store(StoreCourseTemplateRequest $request): object
     {
         $course = CourseTemplate::create($request->only([
-            'branche_id',
+            'branch_id',
             'course_category_id',
             'cancellation_policy_id',
             'name',
@@ -173,11 +173,11 @@ class CourseTemplateController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursetemplate/{id}",
+     *      path="/coursetemplates/{id}",
      *      operationId="getCourseTemplateById",
-     *      tags={"CourseTemplate"},
-     *      summary="Get CourseTemplate information",
-     *      description="Returns CourseTemplate data",
+     *      tags={"CourseTemplates"},
+     *      summary="Get CourseTemplates information",
+     *      description="Returns CourseTemplates data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseTemplate id",
@@ -204,19 +204,19 @@ class CourseTemplateController extends Controller
     public function show(CourseTemplate $courseTemplate): object
     {
 
-        return CourseTemplateResource::make($courseTemplate->load(['branche','course_category','cancellation_policy']));
+        return CourseTemplateResource::make($courseTemplate->load(['branch','course_category','cancellation_policy']));
     }
 
     /**
      * @OA\Put  (
-     *      path="/coursetemplate/{id}",
+     *      path="/coursetemplates/{id}",
      *      operationId="updateCourseTemplate",
-     *      tags={"CourseTemplate"},
-     *      summary="update CourseTemplate information",
-     *      description="update CourseTemplate  data",
+     *      tags={"CourseTemplates"},
+     *      summary="update CourseTemplates information",
+     *      description="update CourseTemplates  data",
      *     @OA\Parameter(
-     *          name="branche_id",
-     *          description="CourseTemplate branche_id",
+     *          name="branch_id",
+     *          description="CourseTemplate branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -331,7 +331,7 @@ class CourseTemplateController extends Controller
     public function update(UpdateCourseTemplateRequest $request, CourseTemplate $courseTemplate): object
     {
         $courseTemplate->update($request->only([
-            'branche_id',
+            'branch_id',
             'course_category_id',
             'cancellation_policy_id',
             'name',
@@ -348,11 +348,11 @@ class CourseTemplateController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/coursetemplate/{id}",
+     *      path="/coursetemplates/{id}",
      *      operationId="deleteCourseTemplateById",
-     *      tags={"CourseTemplate"},
-     *      summary="Delete CourseTemplate information",
-     *      description="Delete CourseTemplate data",
+     *      tags={"CourseTemplates"},
+     *      summary="Delete CourseTemplates information",
+     *      description="Delete CourseTemplates data",
      *      @OA\Parameter(
      *          name="id",
      *          description="CourseTemplate id",
@@ -388,11 +388,11 @@ class CourseTemplateController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursetemplate/restore/{id}",
+     *      path="/coursetemplates/restore/{id}",
      *      operationId="restoreAllCourseTemplateById",
-     *      tags={"CourseTemplate"},
-     *      summary="restore all deleted CourseTemplate information",
-     *      description="restore all deleted CourseTemplate data",
+     *      tags={"CourseTemplates"},
+     *      summary="restore all deleted CourseTemplates information",
+     *      description="restore all deleted CourseTemplates data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"
@@ -418,11 +418,11 @@ class CourseTemplateController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/coursetemplate/restore",
+     *      path="/coursetemplates/restore",
      *      operationId="restoreAllCourseTemplate",
-     *      tags={"CourseTemplate"},
-     *      summary="restore all deleted CourseTemplate information",
-     *      description="restore all  CourseTemplate data",
+     *      tags={"CourseTemplates"},
+     *      summary="restore all deleted CourseTemplates information",
+     *      description="restore all  CourseTemplates data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"

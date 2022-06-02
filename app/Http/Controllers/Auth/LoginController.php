@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\RateLimiter;
@@ -40,8 +41,7 @@ class LoginController extends Controller
 
        // $user = Auth::user();
 
-        $scopes = auth()->user()->Peremison();
-
+        $scopes = auth()->user()->permissions();
         $token = Auth()->user()->createToken('Personal Access Token',$scopes)->accessToken;
 
         RateLimiter::clear($this->throttleKey());

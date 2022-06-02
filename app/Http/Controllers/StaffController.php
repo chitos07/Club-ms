@@ -11,11 +11,11 @@ class StaffController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/staff",
+     *      path="/staffs",
      *      operationId="getStaffList",
-     *      tags={"Staff"},
-     *      summary="Get list of Staff",
-     *      description="Returns list of Staff",
+     *      tags={"Staffs"},
+     *      summary="Get list of Staffs",
+     *      description="Returns list of Staffs",
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -25,16 +25,16 @@ class StaffController extends Controller
      */
     public function index(): object
     {
-        return StaffResource::collection(Staff::all());
+        return StaffResource::collection(Staff::paginate(10));
     }
 
     /**
      * @OA\Post (
-     *      path="/staff",
+     *      path="/staffs",
      *      operationId="storeStaff",
-     *      tags={"Staff"},
-     *      summary="Store Staff information",
-     *      description="Returns Staff data",
+     *      tags={"Staffs"},
+     *      summary="Store Staffs information",
+     *      description="Returns Staffs data",
      *      @OA\Parameter(
      *          name="user_id",
      *          description="Staff user_id",
@@ -54,8 +54,8 @@ class StaffController extends Controller
      *          )
      *      ),
      *      @OA\Parameter(
-     *          name="branche_id",
-     *          description="Staff branche_id",
+     *          name="branch_id",
+     *          description="Staff branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -87,16 +87,16 @@ class StaffController extends Controller
 
     public function store(StoreStaffRequest $request): object
     {
-        $staff = Staff::create($request->only(['user_id','startDate','branche_id','role']));
+        $staff = Staff::create($request->only(['user_id','startDate','branch_id','role']));
         return new StaffResource($staff);
     }
     /**
      * @OA\Get(
-     *      path="/staff/{id}",
+     *      path="/staffs/{id}",
      *      operationId="getStaffById",
-     *      tags={"Staff"},
-     *      summary="Get Staff information",
-     *      description="Returns Staff data",
+     *      tags={"Staffs"},
+     *      summary="Get Staffs information",
+     *      description="Returns Staffs data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Staff id",
@@ -122,16 +122,16 @@ class StaffController extends Controller
 
     public function show(Staff $staff): object
     {
-        return StaffResource::make($staff->load('branche','user'));
+        return StaffResource::make($staff->load('branch','user'));
     }
 
     /**
      * @OA\Put  (
-     *      path="/staff/{id}",
+     *      path="/staffs/{id}",
      *      operationId="updateStaff",
-     *      tags={"Staff"},
-     *      summary="Update Staff information",
-     *      description="Returns Staff data",
+     *      tags={"Staffs"},
+     *      summary="Update Staffs information",
+     *      description="Returns Staffs data",
      *      @OA\Parameter(
      *          name="user_id",
      *          description="Staff user_id",
@@ -151,8 +151,8 @@ class StaffController extends Controller
      *          )
      *      ),
      *      @OA\Parameter(
-     *          name="branche_id",
-     *          description="Staff branche_id",
+     *          name="branch_id",
+     *          description="Staff branch_id",
      *          required=true,
      *          in="path",
      *          @OA\Schema(
@@ -184,7 +184,7 @@ class StaffController extends Controller
     public function update(UpdateStaffRequest $request, Staff $staff): object
     {
         if($staff->exists){
-            $staff->update($request->only(['user_id','startDate','branche_id','role']));
+            $staff->update($request->only(['user_id','startDate','branch_id','role']));
             return new StaffResource($staff);
         }
         abort(404,'error');
@@ -192,11 +192,11 @@ class StaffController extends Controller
 
     /**
      * @OA\Delete (
-     *      path="/staff/{id}",
+     *      path="/staffs/{id}",
      *      operationId="deleteStaffById",
-     *      tags={"Staff"},
-     *      summary="delete Staff information",
-     *      description="delete Staff data",
+     *      tags={"Staffs"},
+     *      summary="delete Staffs information",
+     *      description="delete Staffs data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Staff id",
@@ -232,11 +232,11 @@ class StaffController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/staff/restore/{id}",
+     *      path="/staffs/restore/{id}",
      *      operationId="restoreStaffById",
-     *      tags={"Staff"},
-     *      summary="restore deleted staff information",
-     *      description="restore staff data",
+     *      tags={"Staffs"},
+     *      summary="restore deleted Staffs information",
+     *      description="restore Staffs data",
      *      @OA\Parameter(
      *          name="id",
      *          description="Staff id",
@@ -272,11 +272,11 @@ class StaffController extends Controller
 
     /**
      * @OA\Get(
-     *      path="/staff/restore",
+     *      path="/staffs/restore",
      *      operationId="restoreAllStaff",
-     *      tags={"Staff"},
-     *      summary="restore all deleted staff information",
-     *      description="restore all  staff data",
+     *      tags={"Staffs"},
+     *      summary="restore all deleted Staffs information",
+     *      description="restore all  Staffs data",
      *      @OA\Response(
      *          response=200,
      *          description="successful operation"
