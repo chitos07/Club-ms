@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branche_id')->constrained()->onDelete('cascade');
+            $table->foreignId('branch_id')->constrained()->onDelete('cascade');
             $table->string('name',35);
             $table->softDeletes();
             $table->timestamps();

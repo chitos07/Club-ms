@@ -17,7 +17,7 @@ class CourseTemplateFactory extends Factory
     public function definition()
     {
         return [
-            'branche_id' => 1,
+            'branch_id' => 1,
             'course_category_id' => 1,
             'cancellation_policy_id' => 1,
             'CourseType'  => 'test',

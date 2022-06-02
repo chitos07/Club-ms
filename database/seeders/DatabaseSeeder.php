@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             CurrencySeeder::class,
-            BrancheSeeder::class,
+            BranchSeeder::class,
             ResourceSeeder::class,
             CourseCategorySeeder::class,
             CancellationPolicySeeder::class,

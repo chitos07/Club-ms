@@ -19,7 +19,7 @@ class StaffFactory extends Factory
         return [
             'user_id' => 1,
             'StartDate' => $this->faker->dateTime(),
-            'branche_id' => 1,
+            'branch_id' => 1,
             'role' => 'testRole'
         ];
     }

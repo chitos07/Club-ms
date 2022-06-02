@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name',20);
-            $table->string('address');
-            $table->string('phone');
-            $table->boolean('is_active');
+            $table->string('role');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branchs');
+        Schema::dropIfExists('roles');
     }
 };

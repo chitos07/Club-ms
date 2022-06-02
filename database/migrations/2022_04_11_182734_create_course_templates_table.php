@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('course_templates', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branche_id')->constrained();
+            $table->foreignId('branch_id')->constrained();
             $table->foreignId('course_category_id')->constrained();
             $table->foreignId('cancellation_policy_id')->constrained();
             $table->string('courseType');

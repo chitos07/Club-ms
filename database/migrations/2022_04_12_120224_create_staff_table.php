@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->dateTime('startDate')->nullable();
-            $table->foreignId('branche_id')->constrained();
+            $table->foreignId('branch_id')->constrained();
             $table->string('role',40);
             $table->softDeletes();
             $table->timestamps();

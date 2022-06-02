@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resource>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Branch>
  */
-class ResourceFactory extends Factory
+class BranchFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,11 @@ class ResourceFactory extends Factory
     public function definition()
     {
         return [
-            'branch_id' => 1,
-            'name' => Str::random(10)
+            'name' => Str::random(15),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address(),
+            'is_active' => 1,
+
         ];
     }
 }
